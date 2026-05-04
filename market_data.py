@@ -30,3 +30,16 @@ def check_candle_patterns
             return "BUY_SIGNAL"
             
     return "WAIT"
+def get_chart_data():
+    try:
+        elements = driver.find_elements(By.CLASS_NAME, "chart-container")
+        if elements:
+            # Add logic to extract price or candle data here
+            print("Chart data accessed successfully")
+            return True
+    except Exception as e:
+        print(f"Error accessing chart: {e}")
+        return False
+
+# Call the function
+get_chart_data()
