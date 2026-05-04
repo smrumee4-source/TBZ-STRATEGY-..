@@ -14,3 +14,19 @@ print("Connection Successful")
 
 time.sleep(5)
 driver.quit()
+def check_candle_patterns
+(open_p, close_p, high_p, low_p, prev_low, is_order_block):
+    # Hammer candle calculation
+    body = abs(close_p - open_p)
+    lower_wick = min(open_p, close_p) - low_p
+    upper_wick = high_p - max(open_p, close_p)
+    
+    # Hammer condition: Lower wick is at least 2x the body
+    is_hammer = lower_wick >= (2 * body) and upper_wick <= (0.5 * body)
+
+    # Strategy: Order Block + Hammer + Liquidity Sweep
+    if is_order_block and is_hammer:
+        if low_p < prev_low:
+            return "BUY_SIGNAL"
+            
+    return "WAIT"
